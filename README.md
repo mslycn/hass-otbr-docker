@@ -1,6 +1,6 @@
 # Home Assistant: Docker OpenThread Border Router
 
-Stand-alone Home Assistant OpenThread Border Router docker container. For containerized home
+Stand-alone Home Assistant OpenThread Border Router docker container(arm64). For containerized home
 assistance setup without Yellow or HassOS.
 
 This is a docker container based on the Home Assistant OpenThread Border Router add-on
@@ -14,6 +14,11 @@ with Aqara U200 Lock as it is the only Thread device I've got so far.
 
 Disclaimer: I am completely new to IPv6 and Thread so I don't fully know what I am doing here. Just
 read documentation and forum threads and eventually got it working using this setup.
+
+## How to use
+~~~
+ docker pull ghcr.io/mslycn/hass-otbr-docker
+~~~
 
 ## Prerequisite
 
