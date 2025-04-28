@@ -16,14 +16,17 @@ Disclaimer: I am completely new to IPv6 and Thread so I don't fully know what I 
 read documentation and forum threads and eventually got it working using this setup.
 
 ## How to use
-amd64 architecture
+1. amd64 architecture
+~~~
+docker pull ghcr.io/ownbee/hass-otbr-docker
+~~~
 
-arm64 architecture( not working)
+2. arm64 architecture( not working)
 ~~~
  docker pull ghcr.io/mslycn/hass-otbr-docker
 ~~~
 
-multi architecture support
+3. multi architecture support
 ~~~
 docker pull ghcr.io/d34dc3n73r/hass-otbr-docker
 ~~~
