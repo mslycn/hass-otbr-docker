@@ -100,3 +100,4 @@ Also see the following documentation for further information:
 * https://github.com/home-assistant/addons/tree/master/openthread_border_router
 * https://www.home-assistant.io/integrations/matter
 * https://www.home-assistant.io/integrations/thread
+* https://github.com/D34DC3N73R/hass-otbr-docker
