@@ -1,7 +1,7 @@
 services:
   otbr:
     container_name: otbr
-    image: ghcr.io/ownbee/hass-otbr-docker
+    image: ghcr.io/d34dc3n73r/hass-otbr-docker
     restart: unless-stopped
     privileged: true # don't change this !
     network_mode: host # don't change this !
@@ -9,17 +9,17 @@ services:
       - SYS_ADMIN
       - NET_ADMIN
     environment:
-      DEVICE: "/dev/ttyUSB1"
-      BACKBONE_IF: enp3s0
+      DEVICE: "/dev/ttyUSB0"
+      BACKBONE_IF: eth0
       FLOW_CONTROL: 1
       FIREWALL: 1
       NAT64: 1
       BAUDRATE: 460800
       OTBR_REST_PORT: 8081
-      OTBR_WEB_PORT: 7586
+      OTBR_WEB_PORT: 8080
       AUTOFLASH_FIRMWARE: 0
     devices:
-      - /dev/ttyUSB1:/dev/ttyUSB1
+      - /dev/ttyUSB0:/dev/ttyUSB0
       - /dev/net/tun:/dev/net/tun
     volumes:
       - ./otbr_data:/var/lib/thread
