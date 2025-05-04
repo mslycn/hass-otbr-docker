@@ -26,10 +26,61 @@ docker pull ghcr.io/ownbee/hass-otbr-docker
  docker pull ghcr.io/mslycn/hass-otbr-docker
 ~~~
 
-3. multi architecture support
+3. multi architecture support run ok on rpi 5 
 ~~~
 docker pull ghcr.io/d34dc3n73r/hass-otbr-docker
 ~~~
+
+docker-compose.yml
+```
+mkdir /datadocker/hass-otbr-docker
+
+cd /datadocker/hass-otbr-docker
+```
+
+
+create docker-compose.yml
+
+```
+services:
+  otbr:
+    container_name: otbr
+    image: ghcr.io/d34dc3n73r/hass-otbr-docker
+    restart: unless-stopped
+    privileged: true # don't change this !
+    network_mode: host # don't change this !
+    cap_add:
+      - SYS_ADMIN
+      - NET_ADMIN
+    environment:
+      DEVICE: "/dev/ttyUSB0"
+      BACKBONE_IF: eth0
+      FLOW_CONTROL: 1
+      FIREWALL: 1
+      NAT64: 1
+      BAUDRATE: 460800
+      OTBR_REST_PORT: 8081
+      OTBR_WEB_PORT: 8080
+      AUTOFLASH_FIRMWARE: 0
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/net/tun:/dev/net/tun
+    volumes:
+      - ./otbr_data:/var/lib/thread
+```
+
+docker compose up
+
+run ok
+
+output
+```
+
+```
+go:http://192.168.2.125:8080/
+
+
+
 
 ## Prerequisite
 
